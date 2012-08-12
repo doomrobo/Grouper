@@ -1,0 +1,23 @@
+## Optimal Group Calculator
+
+This application finds the optimal groups of people given their choices and group size. This application was not made to look pretty or work particularly quickly (O(n choose k), ouch) but hopefully it'll work...hopefully.
+
+Syntax:
+<pre>
+./group &lt;input_file&gt;
+</pre>
+
+### Input
+
+The input file's first line must be the group size.
+The rest of the file has the following syntax:
+The person who's choices are being listed must have their name on a line alone.
+The choices of that person appear sequentially each line after that one and must be preceded by whitespace (tabs or spaces). A sample input has been provided. Note: all naming throughout the file must be consistent. A spelling mistake will taken as a different person all together.
+
+### Output
+
+The output will be a list of groups with each member on its own line delimited by a blank line. All outliers (people who did not fit into any group) are listed on the last set of lines.
+
+### Miscellaneous
+
+This program is dependent on the C++11 standard and has only been compiled with g++ 4.7.1, you've been warned
