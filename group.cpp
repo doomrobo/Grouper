@@ -188,7 +188,7 @@ size_t evaluate_combination(size_t group_size, vector<choice> &groups, combinati
 	return score;
 }
 
-bool check_add_group(list<int> &group, list<list<int> > &final_groups, map<int, bool> &person_taken) {
+bool check_add_group(list<int> &group, list<list<int> > &final_groups, bool* &person_taken) {
 	for (int x : group)
 		if (person_taken[x])
 			return false;
@@ -227,7 +227,7 @@ int main(int argc, char **argv) {
 
 	map<size_t, vector<list<int> > > group_scores; // Mapping group fit scores to list of members
 	set<size_t> scores; // List of the unique scores, used for iterating
-	map<int, bool> person_taken;
+	bool *person_taken = new bool[name_bimap.size()]();
 	list<list<int> > final_groups;
 
 	struct combination comb;
@@ -294,5 +294,6 @@ int main(int argc, char **argv) {
 	for (auto outlier : outliers) {
 		cout << name_bimap.right.at(outlier) << endl;
 	}
+	delete[] person_taken;
 	return 0;
 }
